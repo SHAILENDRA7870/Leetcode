@@ -1,0 +1,55 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        
+        int i=a.length()-1;
+        int j=b.length()-1;
+        int carry=0;
+        string ans;
+        
+        while(i>=0 || j>=0)
+        {
+            int sum=0;
+            
+            if(i>=0)
+            {
+                sum=sum+(a[i]-'0');
+                i--;
+            }
+            if(j>=0)
+            {
+                sum=sum+(b[j]-'0');
+                j--;
+            }
+            
+            sum=sum+carry;
+            
+            switch(sum)
+            {
+                case 0:
+                    carry = 0;
+                    ans.push_back('0');
+                    break;
+                case 1:
+                    carry = 0;
+                    ans.push_back('1');
+                    break;
+                case 2:
+                    carry = 1;
+                    ans.push_back('0');
+                    break;
+                case 3:
+                    carry=1;
+                    ans.push_back('1');
+                    break;
+            }
+            
+        }
+        if(carry!=0)
+            ans.push_back('1');
+        
+        reverse(ans.begin(),ans.end());
+        return ans;
+        
+    }
+};
