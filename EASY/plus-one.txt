@@ -1,0 +1,30 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int carray=1;
+        //int add=1;
+        int n=digits.size();
+        
+        for(int i=digits.size()-1;i>=0;i--)
+        {   
+                int k=digits[i];
+                digits[i]=(digits[i]+carray)%10;
+                carray=(k+carray)/10;
+            
+        }
+    
+        if(carray>0)
+        {
+            vector<int> ans(n+1,0);
+            ans[0]=carray;
+            
+            for(int j=1;j<ans.size();j++)
+            {
+                ans[j]=digits[j-1];
+            }
+            return ans;
+
+        }
+        return digits;
+    }
+};
