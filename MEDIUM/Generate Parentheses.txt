@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        
+        vector<string> str;
+        
+        genparenthesis("(",1,0,n,str);
+        return str;
+        
+    }
+    
+    void genparenthesis(string curr,int o,int c,int n,vector<string> &str)
+    {
+        if(curr.length()==n*2)
+        {
+            str.push_back(curr);
+          
+            return;
+        }
+        
+        if(o<n)genparenthesis(curr+"(",o+1,c,n,str);
+        if(c<o)genparenthesis(curr+")",o,c+1,n,str);
+        
+       
+        
+    }
+    
+};
