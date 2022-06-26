@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int divide(int dividend, int divisor) {
+        
+        long long int x= (long long int)dividend/divisor;
+        
+        if(x>INT_MAX)
+            return INT_MAX;
+        else if(x<INT_MIN)
+            return INT_MIN;
+        else
+            return x;
+        
+    }
+};
